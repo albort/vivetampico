@@ -1,0 +1,24 @@
+<div class="dashboard-page">
+  	<div class="container-fluid">
+    	<div class="row">
+      		<div class="col-xs-3 sidebar">
+      			<div class="text-center">
+      				<h2 class="brand">
+      					<div class="row">ViveTampico</div>
+      					<small>Alberto Ortega</small>
+              </h2>
+  				    <a ui-sref="login" class="btn btn-white btn-outline btn-rounded btn-sm" ng-click='logout()'>Cerrar Sesion</a>
+      			</div>
+      			<ul class="nav nav-sidebar">
+        			<li>
+		          	<a ui-sref="app.sitios">Sitios <span class="sr-only">(current)</span></a>
+			        </li>
+			        <li>
+		          	<a ui-sref="reports">QR</a>
+		        	</li>
+	        	</ul>
+        	</div>
+    	<div class="col-xs-9 col-xs-offset-3 main" ui-view>
+    	</div>
+    </div>
+</div>

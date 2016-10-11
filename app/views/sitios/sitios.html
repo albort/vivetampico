@@ -1,0 +1,49 @@
+<div class="row">
+	<div class="col-xs-4">
+		<div class="text-center">
+			<h2 class="brand">Sitios</h2>
+			<a class="btn btn-success btn-lg btn-outline btn-rounded" ui-sref="app.nuevositio">Nuevo</a>
+			<div class="list-group">
+				<a class="list-group-item" ng-repeat="sitio in sitios track by $index" ng-click="viewSitio(sitio, $index)">
+					<h4 class="list-group-item-heading">{{sitio.nombre}}</h4>
+    				<p class="list-group-item-text">{{sitio.subnombre}}</p>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-8 jumbotron" ng-show="sitio">
+		<div class="container">
+			<div class="header-sitio row">
+				<div class="col-xs-6 col-md-4">
+			    	<a href="#" class="thumbnail">
+			      		<img ng-src="{{sitio.imagenBackground}}" alt="...">
+			    	</a>
+			  	</div>
+			  	<div class="col-xs-6 col-md-8">
+			    	<h2>{{sitio.nombre}}</h2>
+					<h3>{{sitio.subnombre}}</h3>
+				</div>				
+			</div>		
+			<ui-gmap-google-map center='map.center' zoom='map.zoom'>
+				<ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+				</ui-gmap-marker>
+    		</ui-gmap-google-map>
+			<div ng-repeat="info in sitio.informacion">
+				<h4>{{info.titulo}}</h4>
+				{{info.detalle}}
+			</div>
+			<br/><br/>
+			<div class="row">
+			  	<div class="col-xs-6 col-md-6" ng-repeat="img in sitio.imagenes">
+			    	<a href="#" class="thumbnail">
+			      		<img ng-src="{{img}}" alt="...">
+			    	</a>
+			  	</div>
+			</div>
+			<p>
+				<a class="btn btn-primary btn-lg btn-outline btn-rounded" ng-click='editarSitio()'>Editar</a>
+				<a class="btn btn-danger btn-lg btn-outline btn-rounded" ng-click='borrarSitio($index)'>Borrar</a>
+			</p>
+		</div>
+	</div>
+</div>
