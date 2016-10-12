@@ -44,6 +44,6 @@ app.options('/upload/sitios', imagesController.options);
 app.get('/upload/sitios', imagesController.getImage);
 app.get('/admin/download/:identifier', imagesController.downloadImage);
 
-app.listen('3000', function(){
+app.listen(process.env.PORT || 3000, function(){
 	console.log('127.0.0.1:3000 is live!');
 });
